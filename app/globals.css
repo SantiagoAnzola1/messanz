@@ -1,8 +1,7 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/forms';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
 }
 
 @theme inline {
@@ -13,14 +12,22 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
+html,
+body,
+:root {
+  height: 100%;
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply font-mono;
+}
+
+.input-styled-form {
+  @apply font-medium block w-full rounded-md border-0  focus:border-zinc-500 focus:ring-2
+   focus:ring-zinc-500 placeholder:text-gray-400 py-1.5 ring-inset ring-1 ring-gray-300  sm:text-sm 
+   sm:leading-6;
+}
+button {
+  @apply cursor-pointer;
 }

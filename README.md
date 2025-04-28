@@ -1,36 +1,210 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Messanz 🚀
 
-## Getting Started
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![CI](https://img.shields.io/badge/build-passing-brightgreen)
+![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black)
 
-First, run the development server:
+A modern, real-time messaging platform for seamless group and private conversations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Description 📖
+
+Messanz is a full-stack messaging application built with Next.js, TypeScript, and Prisma. It enables users to communicate in real time through group and private chats, with robust authentication, responsive design, and a scalable architecture. Messanz is ideal for teams, communities, or anyone needing a reliable chat solution.
+
+---
+
+## Preview 📸
+
+- **Live Demo:** [Deployed on Vercel](https://your-vercel-link.vercel.app)
+- **Screenshots:**  
+  ![Screenshot Placeholder]()
+
+---
+
+## Technologies Used ⚙️
+
+- **Next.js**: 15.2.4
+- **TypeScript**
+- **Tailwind CSS**
+- **Prisma** (MongoDB)
+- **Pusher** (Real-time messaging)
+- **React**
+- **ESLint & Prettier**
+- **MongoDB** (Database)
+
+---
+
+## Prerequisites 🔧
+
+- **Node.js**: >= 16.0.0
+- **pnpm** or **bun**or **npm** or **Yarn**
+
+### Required Environment Variables
+
+Create a `.env` file at the project root with the following:
+
+```env
+DATABASE_URL=your-mongodb-connection-string
+PUSHER_APP_ID=your-pusher-app-id
+NEXT_PUBLIC_PUSHER_APP_KEY=your-pusher-public-key
+PUSHER_SECRET=your-pusher-secret
+NEXTAUTH_SECRET=your-nextauth-secret
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=cloudinary-name
+GITHUB_SECRET=your-oauth-github-secret
+GITHUB_ID=your-oauth-github-id
+GOOGLE_CLIENT_SECRET=your-oauth-google-client-secret
+GOOGLE_CLIENT_ID=your-oauth-google-client-id
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation and Setup 🛠️
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository:**
 
-## Learn More
+   ```bash
+   git clone https://github.com/SantiagoAnzola1/messanz.git
+   cd messanz
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   # or
+   yarn install
+   #or
+   bun install
+   #or
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Set up environment variables:**
 
-## Deploy on Vercel
+   - Create a `.env` file at the project root.
+   - Add all required variables as shown above.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Run the development server:**
+   ```bash
+   pnpm run dev
+   ```
+   The app will be running at [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Available Scripts 📜
+
+- `pnpm run dev` — Start the development server
+- `pnpm run build` — Build the application for production
+- `pnpm run start` — Start the production server
+- `pnpm run lint` — Run the linter
+- `pnpm run format` — Format the code using Prettier
+
+---
+
+## Features 🌟
+
+- 🔒 Full authentication system (Sign Up, Sign In, Sign Out)
+- 💬 Real-time group and private messaging
+- 🗂️ Database operations (CRUD for users, conversations, messages)
+- 🔐 Protected routes based on authentication state
+- 🖼️ Optimized images using Next.js `next/image`
+- ⚡ Server-side rendering (SSR) and Static Generation (SSG)
+- 🔄 Incremental Static Regeneration (ISR)
+- 🛠️ RESTful API endpoints under `/api`
+- 📱 Responsive design with Tailwind CSS
+- ♿ Accessibility best practices
+
+---
+
+## Project Structure 📂
+
+```plaintext
+.
+├── app
+│   ├── actions/                # Server-side data fetching and actions
+│   │   ├── getConversationById.ts
+│   │   ├── getConversations.ts
+│   │   ├── getCurrentUser.ts
+│   │   ├── getMessages.ts
+│   │   ├── getSession.ts
+│   │   └── getUsers.ts
+│   ├── api/
+│   │   ├── auth/               # Authentication API routes
+│   │   ├── conversations/      # Conversation management API
+│   │   ├── messages/           # Message management API
+│   │   ├── pusher/             # Pusher authentication API
+│   │   ├── register/           # User registration API
+│   │   └── settings/           # User settings API
+│   ├── components/             # Reusable UI components
+│   │   ├── ActiveStatus.tsx
+│   │   ├── Avatar.tsx
+│   │   ├── AvatarGroup.tsx
+│   │   ├── Button.tsx
+│   │   ├── EmptyState.tsx
+│   │   ├── LoadingModal.tsx
+│   │   ├── Modal.tsx
+│   │   ├── input/
+│   │   └── sidebar/
+│   ├── context/                # React context providers
+│   ├── conversations/          # Conversation pages and logic
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   └── page.tsx
+│   ├── hooks/                  # Custom React hooks
+│   ├── libs/                   # Utility libraries (Pusher, Prisma, etc.)
+│   ├── types/                  # TypeScript type definitions
+│   ├── users/                  # User pages and logic
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── site/
+│       ├── page.tsx            # Home page
+│       └── components/
+├── prisma/                     # Prisma schema and migrations
+├── public/                     # Static assets (images, etc.)
+├── styles/                     # Additional global styles
+├── .env.local.example          # Example environment variables
+├── .gitignore
+├── pnpm-lock.yaml
+└── README.md
+```
+
+---
+
+## Deployment 🌐
+
+1. Push your code to GitHub.
+2. Connect your repository to [Vercel](https://vercel.com).
+3. Set up environment variables in the Vercel dashboard.
+4. Trigger a deployment.
+
+---
+
+## Contributing 🤝
+
+We welcome contributions! To get started:
+
+1. **Fork** the repository.
+2. **Create a new feature branch:**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Make your changes** and write clear, descriptive commit messages.
+4. **Push** the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. **Open a Pull Request**.
+
+> **Coding Style:**
+>
+> - Use Prettier for code formatting (`pnpm run format`).
+> - Follow ESLint rules (`pnpm run lint`).
+
+---
+
+## License 📄
+
+This project is licensed under the [MIT License].
