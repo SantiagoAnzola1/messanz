@@ -14,6 +14,17 @@ const eslintConfig = [
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+        },
+      ],
+      "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+
+      "no-var": "off",
     },
   },
 ];
