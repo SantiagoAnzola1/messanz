@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"; // Ruta a configuración NextAuth
+import { authOptions } from "@/app/libs/auth/auth";
 import { pusherServer } from "@/app/libs/pusher";
 
 export async function POST(request: Request) {
