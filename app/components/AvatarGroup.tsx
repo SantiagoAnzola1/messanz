@@ -14,7 +14,7 @@ const AvatarGroup = ({ users = [] }: AvatarGroupProps) => {
   };
 
   return (
-    <div className="relative size-7 md:size-10">
+    <div className="relative size-10">
       {slidersUsers.map((user, index) => (
         <div
           key={user.id}

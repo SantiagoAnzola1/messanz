@@ -12,7 +12,7 @@ const Avatar = ({ user }: AvatarProps) => {
   const isActive = members.indexOf(user?.email!) !== -1;
   return (
     <div className="relative flex items-center justify-center">
-      <div className="relative inline-block rounded-full overflow-hidden size-7 md:size-10">
+      <div className="relative inline-block rounded-full overflow-hidden size-10">
         <Image
           alt="avatar"
           src={user?.image || "/images/user-placeholder.webp"}
