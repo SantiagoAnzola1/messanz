@@ -85,8 +85,7 @@ const ConversationList = ({ initialItems, users }: ConversationListProps) => {
       />
       <aside
         className={clsx(
-          "hidden  fixed inset-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block border-r border-gray-200",
-          isOpen ? "block" : "hidden w-full lef-0"
+          "fixed inset-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block border-r border-gray-200 block w-full lef-0"
         )}
       >
         <div className="px-5">
