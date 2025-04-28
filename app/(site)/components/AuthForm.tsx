@@ -52,7 +52,7 @@ const AuthForm = () => {
           toast.success("Logged in");
           signIn("credentials", data);
         })
-        .catch((error) => toast.error("Something went wrong!"))
+        .catch(() => toast.error("Something went wrong!"))
         .finally(() => setIsLoading(false));
     }
 
