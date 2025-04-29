@@ -1,17 +1,15 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import { pusherServer } from "@/app/libs/pusher";
-interface IParams {
-  conversationId?: string;
-}
 
 export async function DELETE(
-  request: Request,
-  { params }: { params: IParams }
+  request: NextRequest,
+  { params }: { params: { conversationId: string } }
 ) {
   try {
-    const { conversationId } = params;
+    const { conversationId } = await params;
+
     if (!conversationId) {
       return new NextResponse("Conversation ID is required", { status: 400 });
     }
@@ -50,6 +48,7 @@ export async function DELETE(
         );
       }
     });
+
     return NextResponse.json(deletedConversation);
   } catch (error) {
     console.log(error, "DELETE_CONVERSATION_ERROR");
