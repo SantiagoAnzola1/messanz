@@ -8,9 +8,10 @@ import Form from "./components/Form";
 interface IParams {
   conversationId: string;
 }
-const conversationId = async ({ params }: { params: IParams }) => {
-  const conversation = await getConversationById(params.conversationId);
-  const messages = await getMessages(params.conversationId);
+const conversationId = async ({ params }: { params: Promise<IParams> }) => {
+  const { conversationId } = await params;
+  const conversation = await getConversationById(conversationId);
+  const messages = await getMessages(conversationId);
 
   if (!conversation) {
     return (
