@@ -2,6 +2,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import { pusherServer } from "@/app/libs/pusher";
+import { User } from "@prisma/client";
 
 export async function DELETE(
   request: NextRequest,
@@ -39,7 +40,7 @@ export async function DELETE(
       },
     });
 
-    existingConversation.users.forEach((user) => {
+    existingConversation.users.forEach((user: User) => {
       if (user.email) {
         pusherServer.trigger(
           user.email,
