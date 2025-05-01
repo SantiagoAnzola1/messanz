@@ -5,7 +5,7 @@ import { pusherServer } from "@/app/libs/pusher";
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { conversationId: string } }
+  { params }: { params: Promise<{ conversationId: string }> }
 ) {
   try {
     const { conversationId } = await params;
