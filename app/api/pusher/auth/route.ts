@@ -1,6 +1,6 @@
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/libs/auth/auth";
 import { pusherServer } from "@/app/libs/pusher";
+import { getServerSession } from "next-auth";
 
 export async function POST(request: Request) {
   const formData = await request.formData();
